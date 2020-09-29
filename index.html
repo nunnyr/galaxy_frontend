@@ -6,9 +6,9 @@
 
   <title>Milky Way Trip</title>
  
-
+    <link rel="stylesheet" href="calendar.css">
     <link rel="stylesheet" href="styles.css">
-    
+        
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     
@@ -22,14 +22,9 @@
 
     
     <!-- CSS only -->
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
-
-  <!-- JS, Popper.js, and jQuery -->
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-       -->
-    <script defer src="index.js"></script>
+       <script defer src="calendar.js"></script>
+       <script defer src="index.js"></script>
+    
 
 </head>
 
@@ -86,9 +81,9 @@
     <!-- end of Navigation bar -->
 
     <h1 class="text-white" align="center">All of our Planets!</h1>
-    <div class="mx-5 card card-accent-primary mb-3" id="galaxy-container">
+    <div class="row-cols-md-2" id="galaxy-container">
       <!-- <div class="row row-cols-md-2 card-group">  -->
-        <div class="card-group">
+        <div class="card-deck">
             <!-- <div class="card mx-3">
               <img src="..." class="card-img-top" alt="...">
               <div class="card-body">
@@ -114,8 +109,9 @@
             </div> -->
 
         </div>
-        <button id="book-trip-btn" type="Book Trip">Book a Galaxy Trip</button>
+        <!-- <button id="book-trip-btn" type="Book Trip">Book a Galaxy Trip</button> -->
     </div>
+    <button id="book-trip-btn" type="Book Trip">Book a Galaxy Trip</button>
     <!-- *************USER SIGN UP FORM*********** -->
     <div id="form-part-one" class="text-white">
         <form id="user-form-one">
@@ -133,6 +129,83 @@
             <input type="text" id="lname" name="lname"> -->
         </form>
     </div>
+
+<!-- ***************************** OUR CALENDAR ************************************* -->
+<div class="calendar">
+  <div class="calendar__month">
+    <div class="cal-month__previous"><</div>
+    <div class="cal-month__current"></div>
+    <div class="cal-month__next">></div>
+  </div>
+  <div class="calendar__head">
+    <div class="cal-head__day"></div>
+    <div class="cal-head__day"></div>
+    <div class="cal-head__day"></div>
+    <div class="cal-head__day"></div>
+    <div class="cal-head__day"></div>
+    <div class="cal-head__day"></div>
+    <div class="cal-head__day"></div>
+  </div>
+  <div class="calendar__body">
+    <div class="cal-body__week">
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+    </div>
+    <div class="cal-body__week">
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+    </div>
+    <div class="cal-body__week">
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+    </div>
+    <div class="cal-body__week">
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+    </div>
+    <div class="cal-body__week">
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+    </div>
+    <div class="cal-body__week">
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+      <div class="cal-body__day"></div>
+    </div>
+  </div>
+</div>
+
+
+
 </body>
 </html>
 

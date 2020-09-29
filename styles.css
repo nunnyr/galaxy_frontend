@@ -8,14 +8,6 @@ h1 {
     right: 60px;     
 }
 
-.card-group {
-    margin-top: 10px;
-    margin-left: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: .5rem;
-}
-
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */

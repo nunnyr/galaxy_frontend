@@ -1,6 +1,6 @@
 
 let galaxyContainer = document.getElementById("galaxy-container")
-let cardGroupDiv = document.querySelector("div.card-group")
+let cardGroupRow = document.querySelector("div.card-deck")
 let tripButton = document.getElementById("book-trip-btn")
 let userForm = document.getElementById("user-form-one")
 
@@ -18,7 +18,7 @@ fetch("http://localhost:3000/planets")
         let planetDiv = document.createElement("div")
             planetDiv.className = "card mx-3"
             // planetDiv.innerText = planet.name 
-            cardGroupDiv.append(planetDiv)
+            cardGroupRow.append(planetDiv)
 
         let planetImg = document.createElement("img")
             planetImg.className = "card-img-top"
