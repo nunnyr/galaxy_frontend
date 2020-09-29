@@ -7,7 +7,7 @@ let userForm = document.getElementById("user-form-one")
 fetch("http://localhost:3000/planets")
     .then(res => res.json())
     .then(planetArr => {
-        cardGroupDiv.innerHTML = ""
+        // cardGroupDiv.innerHTML = ""
         planetArr.forEach(planetObj => {
             console.log("we are in this fetch 🐶")
             turnPlanetToCard(planetObj)
