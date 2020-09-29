@@ -8,6 +8,9 @@ let userForm = document.getElementById("user-form-one")
 let tripForm = document.getElementById("trip-form-two")
 let galaxyTitle = document.getElementById("title")
 
+let globalUser = {}
+
+
 fetch("http://localhost:3000/planets")
     .then(res => res.json())
     .then(planetArr => {
@@ -180,10 +183,12 @@ userForm.addEventListener("submit", (evt) => {
         // We don't know the user's overall purpose.... :/
         console.log("What is the:", newUserObj)
         evt.target.reset()
+        globalUser = newUserObj
         renderTripDetails()
     })
 })
 
+// ################################# Starting Trip Details Form ################################################
 let renderTripDetails = info => {
     // ADD NEW FORM ON HTML FIRST
     galaxyContainer.innerHTML = ""
@@ -260,9 +265,15 @@ let renderTripDetails = info => {
         secondSubmit.type = "submit"
         secondSubmit.innerText = "Confirmation Page"
         tripForm.append(secondSubmit)
-    
-
 }
+
+// ################################ End Trip Details Form #############################################
+tripForm.addEventListener("submit", (evt) => {
+    debugger
+    let departingPlanet = evt.target.departingPlanetSelect.value
+    let arrivalPlanet = evt.target.arrivalPlanetSelect.value
+    let tripDate = evt.target.date.value
+})
 
 // Confirmation form
 // then we need to clear everything again && showcase "MY TRIPS"
