@@ -20,8 +20,7 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    
-    <!-- CSS only -->
+    <!-- <script src="https://unpkg.com/moment" /> -->
        <script defer src="calendar.js"></script>
        <script defer src="index.js"></script>
     
@@ -44,8 +43,8 @@
       <div class="sidenav" id="mySidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
+        <a href="#">Book a Galaxy Trip</a>
+        <a href="#">My Upcoming Trips</a>
         <a href="#">Contact</a>
       </div>
       
@@ -83,128 +82,20 @@
     <h1 class="text-white" align="center">All of our Planets!</h1>
     <div class="row-cols-md-2" id="galaxy-container">
       <!-- <div class="row row-cols-md-2 card-group">  -->
-        <div class="card-deck">
-            <!-- <div class="card mx-3">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-
-            <div class="card mx-3">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              </div>
-            </div>
-
-            <div class="card mx-3">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              </div>
-            </div> -->
+        <div class="card-deck" id="row-1">
 
         </div>
+        <div class="card-deck" id="row-2"></div>
+        <div class="card-deck" id="row-3"></div>
         <!-- <button id="book-trip-btn" type="Book Trip">Book a Galaxy Trip</button> -->
     </div>
     <button id="book-trip-btn" type="Book Trip">Book a Galaxy Trip</button>
     <!-- *************USER SIGN UP FORM*********** -->
     <div id="form-part-one" class="text-white">
-        <form id="user-form-one">
-            <!-- <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname">
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname">
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname"> -->
+        <form id="user-form-one" style="display: inline-grid">
+            
         </form>
     </div>
-
-<!-- ***************************** OUR CALENDAR ************************************* -->
-<div class="calendar">
-  <div class="calendar__month">
-    <div class="cal-month__previous"><</div>
-    <div class="cal-month__current"></div>
-    <div class="cal-month__next">></div>
-  </div>
-  <div class="calendar__head">
-    <div class="cal-head__day"></div>
-    <div class="cal-head__day"></div>
-    <div class="cal-head__day"></div>
-    <div class="cal-head__day"></div>
-    <div class="cal-head__day"></div>
-    <div class="cal-head__day"></div>
-    <div class="cal-head__day"></div>
-  </div>
-  <div class="calendar__body">
-    <div class="cal-body__week">
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-    </div>
-    <div class="cal-body__week">
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-    </div>
-    <div class="cal-body__week">
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-    </div>
-    <div class="cal-body__week">
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-    </div>
-    <div class="cal-body__week">
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-    </div>
-    <div class="cal-body__week">
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-      <div class="cal-body__day"></div>
-    </div>
-  </div>
-</div>
-
-
 
 </body>
 </html>

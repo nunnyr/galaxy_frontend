@@ -1,6 +1,8 @@
 
 let galaxyContainer = document.getElementById("galaxy-container")
-let cardGroupRow = document.querySelector("div.card-deck")
+let cardGroupRow1 = document.querySelector("#row-1")
+let cardGroupRow2 = document.querySelector("#row-2")
+let cardGroupRow3 = document.querySelector("#row-3")
 let tripButton = document.getElementById("book-trip-btn")
 let userForm = document.getElementById("user-form-one")
 
@@ -8,17 +10,17 @@ fetch("http://localhost:3000/planets")
     .then(res => res.json())
     .then(planetArr => {
         // cardGroupDiv.innerHTML = ""
-        planetArr.forEach(planetObj => {
+        planetArr.forEach( (planetObj, index) => {
             console.log("we are in this fetch 🐶")
-            turnPlanetToCard(planetObj)
+            turnPlanetToCard(planetObj, index)
         })
     })
 
-    let turnPlanetToCard = planet => {
+    let turnPlanetToCard = (planet, index) => {
         let planetDiv = document.createElement("div")
             planetDiv.className = "card mx-3"
             // planetDiv.innerText = planet.name 
-            cardGroupRow.append(planetDiv)
+
 
         let planetImg = document.createElement("img")
             planetImg.className = "card-img-top"
@@ -39,6 +41,14 @@ fetch("http://localhost:3000/planets")
             cardText.className = "card-text"
             cardText.innerText = planet.facts
             cardBody.append(cardText)
+
+        if (index < 3) {
+            cardGroupRow1.append(planetDiv)
+        } else if (index >= 3 && index <= 5) {
+            cardGroupRow2.append(planetDiv)
+        } else if (index > 5) {
+            cardGroupRow3.append(planetDiv)
+        }
     }
 
 //////////////////////////////////////// FORM JS ///////////////////////////////////////////
