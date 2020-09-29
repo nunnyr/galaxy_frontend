@@ -5,7 +5,32 @@ body {
 
 h1 {
     color: white;
-    right: 60px;     
+    right: 60px;
+    font: helvetica;
+    padding: 50px;     
+}
+
+/* #galaxy-container .row-cols-md2 {
+    height: 400px;
+    width: 400px;
+} */
+
+.button-one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: helvetica;
+    font-size: 25px;
+}
+
+#book-trip-btn {
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.card-deck {
+    margin: 50px 0px 50px 50px;
+
 }
 
 /* The side navigation menu */
