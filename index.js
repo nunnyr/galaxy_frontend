@@ -5,6 +5,8 @@ let cardGroupRow2 = document.querySelector("#row-2")
 let cardGroupRow3 = document.querySelector("#row-3")
 let tripButton = document.getElementById("book-trip-btn")
 let userForm = document.getElementById("user-form-one")
+let tripForm = document.getElementById("trip-form-two")
+let galaxyTitle = document.getElementById("title")
 
 fetch("http://localhost:3000/planets")
     .then(res => res.json())
@@ -53,6 +55,7 @@ fetch("http://localhost:3000/planets")
 
 //////////////////////////////////////// FORM JS ///////////////////////////////////////////
 tripButton.addEventListener("click", (evt) => {
+    hidingTripButton()
     renderUserRegistration()
     // our renderFormProcess will clear the galaxyContainer or hide it...
     // building out our form
@@ -60,16 +63,23 @@ tripButton.addEventListener("click", (evt) => {
         // when this form is submitted, that's another eventListener
 })
 
+let hidingTripButton = trip => {
+    let buttonOne = tripButton
+    buttonOne.className = "hiding-elem"
+}
+
 let renderUserRegistration = info => {
     //first we want to create a new user
     galaxyContainer.innerHTML = ""
-    
+    galaxyTitle.innerText = "Account Details"
+
     let labelPronouns = document.createElement("label")
         labelPronouns.for = "pronouns"
         labelPronouns.innerText = "Please select your pronouns:"
         userForm.append(labelPronouns)
 
     let selectPronouns = document.createElement("select")
+        selectPronouns.className = "pronouns-class"
         selectPronouns.id = "pronounsSelect"
         selectPronouns.name = "prounounsList"
         selectPronouns.form = "pronounsForm"
@@ -134,14 +144,15 @@ let renderUserRegistration = info => {
         userForm.append(inputEmail)
 
     let firstSubmit = document.createElement("button")
+        firstSubmit.className = "submit-btn"
         firstSubmit.type = "submit"
-        firstSubmit.innerText = "Next! Choose Trip Details!"
+        firstSubmit.innerText = "Go to Booking Details"
         userForm.append(firstSubmit)
 }
 
 userForm.addEventListener("submit", (evt) => {
     evt.preventDefault()
-    console.log("WE ARE IN THE FIRST SUBMIT EVENT LISTENER")
+    // console.log("WE ARE IN THE FIRST SUBMIT EVENT LISTENER")
     // debugger
     let userPronouns = evt.target.pronounsSelect.value
     let userFirstName = evt.target.fname.value
@@ -170,13 +181,87 @@ userForm.addEventListener("submit", (evt) => {
         console.log("What is the:", newUserObj)
         evt.target.reset()
         renderTripDetails()
-        
     })
 })
 
 let renderTripDetails = info => {
     // ADD NEW FORM ON HTML FIRST
-    // ADDING NEW FORM FOR USER TO NOW CHOOSE PLANET(S) && TRIP DATES
+    galaxyContainer.innerHTML = ""
+    userForm.innerHTML = ""
+    galaxyTitle.innerText = "Trip Details"
+    // USER NOW CHOOSE PLANET(S) && TRIP DATES
+        // ONE date input && TWO planet drop down forms (ONE WAY)
+        // ADVANCED GOAL: SEATING CHART
+        // Our occupancy is now our price
+            // Let priceTag = document.createElement("p")
+            // priceTag.innerText = `$${planet.occupancy}.00`
+        // Confirm Trip Button: You are not able to make changes
+    let planetsArray = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"]
+
+    let labelDepartingPlanet = document.createElement("label")
+        labelDepartingPlanet.for = "departing planet"
+        labelDepartingPlanet.innerText = "Please select your departing planet:"
+        tripForm.append(labelDepartingPlanet)
+
+    let selectDepartingPlanet = document.createElement("select")
+        selectDepartingPlanet.className = "departing-planet-class"
+        selectDepartingPlanet.id = "departingPlanetSelect"
+        selectDepartingPlanet.name = "departingList"
+        selectDepartingPlanet.form = "departingPlanetForm"
+        tripForm.append(selectDepartingPlanet)
+
+    let turnPlanetToDepartOption = info => {
+        planetsArray.forEach(planet => {
+            let optionDepartingPlanet = document.createElement("option")
+                optionDepartingPlanet.value = planet
+                optionDepartingPlanet.innerText = planet
+                selectDepartingPlanet.append(optionDepartingPlanet)
+        })
+    }
+        
+    turnPlanetToDepartOption()
+
+    let labelArrivalPlanet = document.createElement("label")
+        labelArrivalPlanet.for = "arrival planet"
+        labelArrivalPlanet.innerText = "Please select your arrival planet:"
+        tripForm.append(labelArrivalPlanet)
+
+    let selectArrivalPlanet = document.createElement("select")
+        selectArrivalPlanet.className = "arrival-planet-class"
+        selectArrivalPlanet.id = "arrivalPlanetSelect"
+        selectArrivalPlanet.name = "arrivalList"
+        selectArrivalPlanet.form = "arrivalPlanetForm"
+        tripForm.append(selectArrivalPlanet)
+
+    let turnPlanetToArrivalOption = info => {
+        planetsArray.forEach(planet => {
+            let optionArrivalPlanet = document.createElement("option")
+                optionArrivalPlanet.value = planet
+                optionArrivalPlanet.innerText = planet
+                selectArrivalPlanet.append(optionArrivalPlanet)
+        })
+    }
+
+    turnPlanetToArrivalOption()
+
+    let labelDate = document.createElement("label")
+        labelDate.for = "date"
+        labelDate.innerText = "Travel Date:"
+        tripForm.append(labelDate)
+
+    let inputDate = document.createElement("input")
+        inputDate.type = "date"
+        inputDate.id = "date"
+        inputDate.name = "date"
+        tripForm.append(inputDate)
+
+    let secondSubmit = document.createElement("button")
+        secondSubmit.className = "submit-btn"
+        secondSubmit.type = "submit"
+        secondSubmit.innerText = "Confirmation Page"
+        tripForm.append(secondSubmit)
+    
+
 }
 
 // Confirmation form
