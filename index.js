@@ -9,7 +9,6 @@ fetch("http://localhost:3000/planets")
     .then(planetArr => {
         cardGroupDiv.innerHTML = ""
         planetArr.forEach(planetObj => {
-
             console.log("we are in this fetch 🐶")
             turnPlanetToCard(planetObj)
         })
@@ -55,6 +54,29 @@ let renderUserRegistration = info => {
     //first we want to create a new user
     galaxyContainer.innerHTML = ""
     
+    let labelPronouns = document.createElement("label")
+        labelPronouns.for = "pronouns"
+        labelPronouns.innerText = "Please select your pronouns:"
+        userForm.append(labelPronouns)
+
+    let selectPronouns = document.createElement("select")
+        selectPronouns.id = "pronounsSelect"
+        selectPronouns.name = "prounounsList"
+        selectPronouns.form = "pronounsForm"
+        userForm.append(selectPronouns)
+    
+    let pronounsArray = ["She/Her/Hers", "He/Him/His", "They/Them/Theirs", "Ze/Hir/Hirs", "Name Only", "Choose Not to Disclose"]
+    let turnPronounToOption = info => {
+        pronounsArray.forEach(pronoun => {
+            let optionPronouns = document.createElement("option")
+                optionPronouns.value = pronoun
+                optionPronouns.innerText = pronoun
+                selectPronouns.append(optionPronouns)
+        })
+    }
+
+    turnPronounToOption()
+
     let labelFirstName = document.createElement("label")
         labelFirstName.for = "fname"
         labelFirstName.innerText = "First Name:"
@@ -110,7 +132,8 @@ let renderUserRegistration = info => {
 userForm.addEventListener("submit", (evt) => {
     evt.preventDefault()
     console.log("WE ARE IN THE FIRST SUBMIT EVENT LISTENER")
-    debugger
+    // debugger
+    let userPronouns = evt.target.pronounsSelect.value
     let userFirstName = evt.target.fname.value
     let userLastName = evt.target.lname.value
     let userAge = evt.target.ageInput.value
@@ -123,6 +146,7 @@ userForm.addEventListener("submit", (evt) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+            pronouns: userPronouns,
             first_name: userFirstName,
             last_name: userLastName,
             age: userAge,
@@ -134,11 +158,16 @@ userForm.addEventListener("submit", (evt) => {
     .then(newUserObj => {
         // We don't know the user's overall purpose.... :/
         console.log("What is the:", newUserObj)
+        evt.target.reset()
         renderTripDetails()
         
     })
 })
 
 let renderTripDetails = info => {
-    // ADDING NEW FORM
+    // ADD NEW FORM ON HTML FIRST
+    // ADDING NEW FORM FOR USER TO NOW CHOOSE PLANET(S) && TRIP DATES
 }
+
+// Confirmation form
+// then we need to clear everything again && showcase "MY TRIPS"
