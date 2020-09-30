@@ -10,6 +10,7 @@ let galaxyTitle = document.getElementById("title")
 let planetsArray = ["Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune", "Saturn", "Pluto", "Mercury"]
 let confirmBox = document.getElementById("confirmation-container")
 let universeQuote = document.getElementById("universe-quote")
+let aboutMe = document.getElementById("its-me")
 
 let globalUser = {}
 
@@ -118,8 +119,7 @@ let renderUserRegistration = info => {
         inputFirstName.id = "fname"
         inputFirstName.name = "fname"
         userForm.append(inputFirstName)
-    
-    // WE NEED TO ADD BREAKS!!! HOW?!?!?!?!?!
+
 
     let labelLastName = document.createElement("label")
         labelLastName.for = "lname"
@@ -323,17 +323,17 @@ let renderConfirmation = info => {
     let confirmDepartPlanet = planetsArray[chosenDepartPlanet]
     let confirmArrivalPlanet = planetsArray[chosenArrivalPlanet]
     
-    // let confirmDate = info.date
+    let confirmDate = info.date
     
     let universeDiv = document.createElement("div")
             // universeDiv.className = "showing"
-        universeDiv.innerText = `“Everything amazing about the universe is inside of you, \n and the two are inseparable.” — Carl Sagan`
+        universeDiv.innerText = `“Everything amazing about the universe is inside of you, \n and the two are inseparable.” \n — Carl Sagan \n `
         universeQuote.append(universeDiv)
 
     let confirmDiv = document.createElement("div")
         confirmDiv.className = "inner-confirm"
-        confirmDiv.innerText = `     You are leaving from ${confirmDepartPlanet} to ${confirmArrivalPlanet}. \n You are leaving on this date`
-        //  on ${confirmDate}`
+        confirmDiv.innerText = `     You are leaving from ${confirmDepartPlanet} to ${confirmArrivalPlanet}. \n You are leaving on this date on ${confirmDate} `
+          
         confirmBox.append(confirmDiv)
 
         // let universeDiv = document.createElement("div")
@@ -354,4 +354,59 @@ function openNav() {
 /* Set the width of the side navigation to 0 */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+}
+
+
+
+
+
+
+//###################################login #########################################
+let loginEmail = document.getElementById("login-form")
+let loginPassword = document.getElementById("login-password")
+
+loginEmail.addEventListener("submit", (evt) => {
+    evt.preventDefault()
+    
+    // console.log("👻👻👻👻👻👻👻👻")
+    // debugger
+    let emailUser = evt.target.email.value
+    // let you = user.id
+
+
+    fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify({
+            theUserNameFromFrontEnd: emailUser,
+            
+        })
+    })
+        .then(res => res.json())
+        .then(foundUserObj => {
+            // if(response.id){
+            //     showTeacherInformation(response)
+            //     console.log(response);
+            // } else {
+            //     console.error(response)
+            // }
+            console.log("this is what 👻", foundUserObj)
+            showMe(foundUserObj)
+        })
+})
+
+
+let showMe = user => {
+    galaxyContainer.innerHTML = ""
+    galaxyTitle.innerText = "My Upcoming Trips"
+
+    let upcomingDiv = document.createElement("div")
+        upcomingDiv.className = "my-trips"
+        aboutMe.append(upcomingDiv)
+
+    debugger
+
+
 }

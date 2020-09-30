@@ -20,8 +20,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <!-- <script src="https://unpkg.com/moment" /> -->
-    <script defer src="index.js"></script>
     <script defer src="login.js"></script>
+    <script defer src="index.js"></script>
     
 
 </head>
@@ -62,10 +62,10 @@
       </div>
 
       <div class="login-container">
-        <form action="/action_page.php">
+        <form  id="login-form">
           <input type="text" placeholder="Email" name="email" id="login-email">
-          <input type="text" placeholder="Password" name="psw" id="login-password">
-          <button class="submit-btn">Login</button>
+          <input type="password" placeholder="Password" name="psw" id="login-password">
+          <button class="submit-btn" id="login-submit-enter">Login</button>
         </form>
       </div>
     </div>
@@ -107,10 +107,12 @@
 
 
   <!-- *********************** CONFIRMATION PAGE ********************************** -->
-  <div class="hiding-elem" id="universe-quote"></div>
   <div class="hiding-elem" id="confirmation-container"></div>
+  <div class="hiding-elem" id="universe-quote"></div>
 
 
+  <!-- ***************************ACCOUNT DETAILS ************************************** -->
+  <div class="about-me" id="its-me"></div>
 
 <!-- <footer style="height:auto; background-color:#34227d;">
     <h4>Made with ♥ at Flatiron School</h4>
