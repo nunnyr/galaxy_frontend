@@ -9,6 +9,7 @@ let tripForm = document.getElementById("trip-form-two")
 let galaxyTitle = document.getElementById("title")
 let planetsArray = ["Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune", "Saturn", "Pluto", "Mercury"]
 let confirmBox = document.getElementById("confirmation-container")
+let universeQuote = document.getElementById("universe-quote")
 
 let globalUser = {}
 
@@ -309,6 +310,8 @@ tripForm.addEventListener("submit", (evt) => {
 let renderConfirmation = info => {
     tripForm.innerHTML = ""
     galaxyTitle.innerText = "Confirmation Details"
+    confirmBox.className = "showing"
+    universeQuote.className = "show-quote"
 
     //we need to match the index by iterating through the planets
     //
@@ -316,22 +319,28 @@ let renderConfirmation = info => {
     let chosenArrivalPlanet  = info.arrival_planet_id
     
     
+    
     let confirmDepartPlanet = planetsArray[chosenDepartPlanet]
     let confirmArrivalPlanet = planetsArray[chosenArrivalPlanet]
-    let confirmDate = Date.parse(info.date)
     
-        
+    // let confirmDate = info.date
+    
+    let universeDiv = document.createElement("div")
+            // universeDiv.className = "showing"
+        universeDiv.innerText = `“Everything amazing about the universe is inside of you, \n and the two are inseparable.” — Carl Sagan`
+        universeQuote.append(universeDiv)
 
     let confirmDiv = document.createElement("div")
         confirmDiv.className = "inner-confirm"
-        confirmDiv.innerText = `You are leaving from ${confirmDepartPlanet} to ${confirmArrivalPlanet} on ${confirmDate}`
+        confirmDiv.innerText = `     You are leaving from ${confirmDepartPlanet} to ${confirmArrivalPlanet}. \n You are leaving on this date`
+        //  on ${confirmDate}`
         confirmBox.append(confirmDiv)
 
-        //departing
-        //arrival
-        //price
-        //date
-        //user
+        // let universeDiv = document.createElement("div")
+        //     // universeDiv.className = "showing"
+        //     universeDiv.innerText = `“Everything amazing about the universe is inside of you, and the two are inseparable.” — Carl Sagan`
+        //     universeQuote.append(universeDiv)
+
         
 
 }
