@@ -7,6 +7,8 @@ let tripButton = document.getElementById("book-trip-btn")
 let userForm = document.getElementById("user-form-one")
 let tripForm = document.getElementById("trip-form-two")
 let galaxyTitle = document.getElementById("title")
+let planetsArray = ["Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune", "Saturn", "Pluto", "Mercury"]
+let confirmBox = document.getElementById("confirmation-container")
 
 let globalUser = {}
 
@@ -206,7 +208,6 @@ let renderTripDetails = info => {
             // Let priceTag = document.createElement("p")
             // priceTag.innerText = `$${planet.occupancy}.00`
         // Confirm Trip Button: You are not able to make changes
-    let planetsArray = ["Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune", "Saturn", "Pluto", "Mercury"]
 
     let labelDepartingPlanet = document.createElement("label")
         labelDepartingPlanet.for = "departing planet"
@@ -293,16 +294,47 @@ tripForm.addEventListener("submit", (evt) => {
     .then(res => res.json())
     .then(newTripObj => {
         // We don't know the user's overall purpose.... :/
-        console.log("What is the:", newTripObj)
+        console.log("What is the tripObj 👻:", newTripObj)
         evt.target.reset()
         // globalUser = newUserObj
-        debugger
-        renderConfirmation()
+        // debugger
+        renderConfirmation(newTripObj)
     })
 })
 // WE NOW HAVE TO HANDLE THE TRIP BEING CREATED
 // Confirmation form
 // then we need to clear everything again && showcase "MY TRIPS"
+
+
+let renderConfirmation = info => {
+    tripForm.innerHTML = ""
+    galaxyTitle.innerText = "Confirmation Details"
+
+    //we need to match the index by iterating through the planets
+    //
+    let chosenDepartPlanet = info.depart_planet_id
+    let chosenArrivalPlanet  = info.arrival_planet_id
+    
+    
+    let confirmDepartPlanet = planetsArray[chosenDepartPlanet]
+    let confirmArrivalPlanet = planetsArray[chosenArrivalPlanet]
+    let confirmDate = Date.parse(info.date)
+    
+        
+
+    let confirmDiv = document.createElement("div")
+        confirmDiv.className = "inner-confirm"
+        confirmDiv.innerText = `You are leaving from ${confirmDepartPlanet} to ${confirmArrivalPlanet} on ${confirmDate}`
+        confirmBox.append(confirmDiv)
+
+        //departing
+        //arrival
+        //price
+        //date
+        //user
+        
+
+}
 
 
 /* Set the width of the side navigation to 250px */

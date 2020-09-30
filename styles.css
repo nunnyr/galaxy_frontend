@@ -78,9 +78,9 @@ input[type=text] {
    
 }
 
-/* h4 {
+.inner-confirm {
   color: white;
-} */
+}
 .pronouns-class {
     outline: none;
     border-radius: 40px;
