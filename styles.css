@@ -72,7 +72,7 @@ input[type=password] {
 }
 
 .submit-btn {
-  font-family: 'Roboto',sans-serif;
+  font-family: 'Helvetica';
     margin: 35px;
     border-radius: 40px;
     cursor: pointer;
@@ -85,6 +85,46 @@ input[type=password] {
 .submit-btn:hover {
     background: rgb(178, 203, 245);
    
+}
+
+
+.new-trip-after-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-family: 'Helvetica';
+  margin: 35px;
+  width: 250px;
+  outline:none;
+  height: 100px;
+  border-radius: 40px;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  background: rgb(66, 184, 221);
+
+}
+
+.new-trip-after-login:hover {
+  background: rgb(178, 203, 245);
+}
+
+.new-view-after-booking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-family: 'Helvetica';
+  margin: 35px;
+  width: 250px;
+  outline:none;
+  height: 100px;
+  border-radius: 40px;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  background: rgb(66, 184, 221);
 }
 
 .inner-confirm {
@@ -128,6 +168,26 @@ input[type=password] {
   /* background-color: rgb(186, 142, 186); */
   
 
+}
+
+li {
+  list-style-type: none;
+}
+
+
+.my-trips {
+  margin: 0 auto;
+  width:600px;
+  height:auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: helvetica;
+  font-size: 30px;
+  border-radius: 40px;
+  border-color: purple;
+  background-color: #e9a340;
+  outline: none;
 }
 
 /* .show-quote {
