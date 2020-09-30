@@ -1,6 +1,14 @@
 body {
     background: radial-gradient(circle, rgba(147,149,224,1) 28%, rgba(61,82,181,1) 61%, rgba(7,39,154,1) 75%);
     
+    background-image: url(img/universe.jpg);
+    width: 100%;
+    /* no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+   
 }
 
 h1 {
@@ -39,7 +47,6 @@ h1 {
 }
 
 
-
 #form-part-one {
     display: flex;
     justify-content: center;
@@ -56,20 +63,25 @@ input[type=text] {
 }
 
 .submit-btn {
-    margin: 25px;
+  font-family: 'Roboto',sans-serif;
+    margin: 35px;
     border-radius: 40px;
     cursor: pointer;
     outline: none;
+    color: white;
+    background: rgb(66, 184, 221);
+   
 }
 
 .pronouns-class {
     outline: none;
     border-radius: 40px;
+    margin: 5px;
     cursor: pointer;
 }
 
 #form-part-two {
-  display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     font: helvetica;
@@ -78,13 +90,14 @@ input[type=text] {
 
 /* The side navigation menu */
 .sidenav {
+    /* background-image: url(img/star_gif.gif); */
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: rgb(4, 12, 17); /* Black*/
+    background-color: rgb(4, 32, 50); /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -95,14 +108,14 @@ input[type=text] {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: rgb(169, 214, 242);
     display: block;
     transition: 0.3s;
   }
   
   /* When you mouse over the navigation links, change their color */
   .sidenav a:hover {
-    color: #f1f1f1;
+    color: #8edbf2;
   }
   
   /* Position and style the close button (top right corner) */
@@ -127,13 +140,14 @@ input[type=text] {
     height: 0px;
     display: inline-block;
     cursor: pointer;
+    
   }
   
   .bar1, .bar2, .bar3 {
     width: 28px;
     height: 4px;
-    background-color: #333;
-    margin: 6px 0;
+    background-color: rgb(242, 231, 231);
+    margin: 6px ;
   }
 
 /* TOP NAV BAR WITH LOGIN FORM */
@@ -142,7 +156,12 @@ input[type=text] {
 /* Style the navbar */
 .topnav {
   overflow: hidden;
+  background-image: url(img/star_gif.gif);
+  /* background-image: url(img/purple.jpg); */
+  
   background-color: #b39cfb;
+
+  
 }
 
 /* Navbar links */
@@ -189,14 +208,14 @@ input[type=text] {
   padding: 6px;
   margin-top: 8px;
   margin-right: 20px;
-  background: #ddd;
+  background: rgb(79, 63, 186);
   font-size: 17px;
   border: none;
   cursor: pointer;
 }
 
 .topnav .login-container button:hover {
-  background: #ccc;
+  background: rgb(135, 187, 211);
 }
 
 /* Add responsiveness - On small screens, display the navbar vertically instead of horizontally */
@@ -213,7 +232,7 @@ input[type=text] {
     padding: 14px;
   }
   .topnav input[type=text] {
-    border: 1px solid #ccc; 
+    border: 1px solid rgb(160, 219, 237); 
   }
 }
 

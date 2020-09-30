@@ -76,6 +76,11 @@ let renderUserRegistration = info => {
     galaxyContainer.innerHTML = ""
     galaxyTitle.innerText = "Account Details"
 
+    // let userImg = document.createElement("img")
+    //     userImg.className = "galaxy-png"
+    //     userImg.src = img/astronaut.png
+    //     userForm.append(userImg)
+
     let labelPronouns = document.createElement("label")
         labelPronouns.for = "pronouns"
         labelPronouns.innerText = "Please select your pronouns:"
@@ -149,7 +154,7 @@ let renderUserRegistration = info => {
     let firstSubmit = document.createElement("button")
         firstSubmit.className = "submit-btn"
         firstSubmit.type = "submit"
-        firstSubmit.innerText = "Go to Booking Details"
+        firstSubmit.innerText = "Booking Details"
         userForm.append(firstSubmit)
 }
 
