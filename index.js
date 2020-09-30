@@ -299,7 +299,7 @@ tripForm.addEventListener("submit", (evt) => {
         renderConfirmation()
     })
 })
-
+// WE NOW HAVE TO HANDLE THE TRIP BEING CREATED
 // Confirmation form
 // then we need to clear everything again && showcase "MY TRIPS"
 
@@ -307,9 +307,9 @@ tripForm.addEventListener("submit", (evt) => {
 /* Set the width of the side navigation to 250px */
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
-  }
+}
   
-  /* Set the width of the side navigation to 0 */
-  function closeNav() {
+/* Set the width of the side navigation to 0 */
+function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-  }
+}
