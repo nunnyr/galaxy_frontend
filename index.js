@@ -216,9 +216,9 @@ let renderTripDetails = info => {
         tripForm.append(selectDepartingPlanet)
 
     let turnPlanetToDepartOption = info => {
-        planetsArray.forEach(planet => {
+        planetsArray.forEach( (planet, index) => {
             let optionDepartingPlanet = document.createElement("option")
-                optionDepartingPlanet.value = planet
+                optionDepartingPlanet.value = index
                 optionDepartingPlanet.innerText = planet
                 selectDepartingPlanet.append(optionDepartingPlanet)
         })
@@ -239,9 +239,9 @@ let renderTripDetails = info => {
         tripForm.append(selectArrivalPlanet)
 
     let turnPlanetToArrivalOption = info => {
-        planetsArray.forEach(planet => {
+        planetsArray.forEach((planet, index) => {
             let optionArrivalPlanet = document.createElement("option")
-                optionArrivalPlanet.value = planet
+                optionArrivalPlanet.value = index
                 optionArrivalPlanet.innerText = planet
                 selectArrivalPlanet.append(optionArrivalPlanet)
         })
@@ -269,10 +269,29 @@ let renderTripDetails = info => {
 
 // ################################ End Trip Details Form #############################################
 tripForm.addEventListener("submit", (evt) => {
-    debugger
     let departingPlanet = evt.target.departingPlanetSelect.value
     let arrivalPlanet = evt.target.arrivalPlanetSelect.value
     let tripDate = evt.target.date.value
+    fetch("http://localhost:3000/trips", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            user: globalUser,
+            date: tripDate,
+            depart_planet_id: departingPlanet,
+            arrival_planet_id: arrivalPlanet
+        })
+    })
+    .then(res => res.json())
+    .then(newTripObj => {
+        // We don't know the user's overall purpose.... :/
+        console.log("What is the:", newTripObj)
+        evt.target.reset()
+        // globalUser = newUserObj
+        renderConfirmation()
+    })
 })
 
 // Confirmation form
