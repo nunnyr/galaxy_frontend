@@ -73,6 +73,14 @@ input[type=text] {
    
 }
 
+.submit-btn:hover {
+    background: rgb(178, 203, 245);
+   
+}
+
+/* h4 {
+  color: white;
+} */
 .pronouns-class {
     outline: none;
     border-radius: 40px;
