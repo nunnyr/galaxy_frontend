@@ -38,6 +38,8 @@ h1 {
 
 }
 
+
+
 #form-part-one {
     display: flex;
     justify-content: center;
@@ -57,12 +59,21 @@ input[type=text] {
     margin: 25px;
     border-radius: 40px;
     cursor: pointer;
+    outline: none;
 }
 
 .pronouns-class {
     outline: none;
     border-radius: 40px;
     cursor: pointer;
+}
+
+#form-part-two {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    font: helvetica;
+    font-size: 22px;
 }
 
 /* The side navigation menu */
@@ -111,6 +122,7 @@ input[type=text] {
 
 /* HAMBURGER MENU */
   .container {
+    margin: 1px;
     width: 0px;
     height: 0px;
     display: inline-block;
@@ -130,7 +142,7 @@ input[type=text] {
 /* Style the navbar */
 .topnav {
   overflow: hidden;
-  background-color: #e9e9e9;
+  background-color: #b39cfb;
 }
 
 /* Navbar links */
@@ -158,6 +170,7 @@ input[type=text] {
 
 /* Style the input container */
 .topnav .login-container {
+  
   float: right;
 }
 
@@ -175,7 +188,7 @@ input[type=text] {
   float: right;
   padding: 6px;
   margin-top: 8px;
-  margin-right: 16px;
+  margin-right: 20px;
   background: #ddd;
   font-size: 17px;
   border: none;

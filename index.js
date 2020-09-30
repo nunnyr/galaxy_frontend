@@ -201,7 +201,7 @@ let renderTripDetails = info => {
             // Let priceTag = document.createElement("p")
             // priceTag.innerText = `$${planet.occupancy}.00`
         // Confirm Trip Button: You are not able to make changes
-    let planetsArray = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"]
+    let planetsArray = ["Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune", "Saturn", "Pluto", "Mercury"]
 
     let labelDepartingPlanet = document.createElement("label")
         labelDepartingPlanet.for = "departing planet"
@@ -269,6 +269,7 @@ let renderTripDetails = info => {
 
 // ################################ End Trip Details Form #############################################
 tripForm.addEventListener("submit", (evt) => {
+    evt.preventDefault()
     let departingPlanet = evt.target.departingPlanetSelect.value
     let arrivalPlanet = evt.target.arrivalPlanetSelect.value
     let tripDate = evt.target.date.value
