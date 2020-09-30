@@ -296,6 +296,7 @@ tripForm.addEventListener("submit", (evt) => {
         console.log("What is the:", newTripObj)
         evt.target.reset()
         // globalUser = newUserObj
+        debugger
         renderConfirmation()
     })
 })
