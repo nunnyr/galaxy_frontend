@@ -203,6 +203,7 @@ let renderTripDetails = info => {
     // ADD NEW FORM ON HTML FIRST
     galaxyContainer.innerHTML = ""
     userForm.innerHTML = ""
+    aboutMe.innerHTML = ""
     galaxyTitle.innerText = "Trip Details"
     // USER NOW CHOOSE PLANET(S) && TRIP DATES
         // ONE date input && TWO planet drop down forms (ONE WAY)
@@ -328,13 +329,13 @@ let renderConfirmation = info => {
     let confirmDate = info.date
     
     let universeDiv = document.createElement("div")
-            // universeDiv.className = "showing"
-        universeDiv.innerText = `“Everything amazing about the universe is inside of you, \n and the two are inseparable.” \n — Carl Sagan \n `
+        universeDiv.className = "show-quote"
+        universeDiv.innerText = `“Everything amazing about the universe is inside of you, and the two are inseparable.” — Carl Sagan`
         universeQuote.append(universeDiv)
 
     let confirmDiv = document.createElement("div")
         confirmDiv.className = "inner-confirm"
-        confirmDiv.innerText = `     You are leaving from ${confirmDepartPlanet} to ${confirmArrivalPlanet}. \n You are leaving on this date on ${confirmDate} `
+        confirmDiv.innerText = `     You are leaving from ${confirmDepartPlanet} to ${confirmArrivalPlanet} \n on ${confirmDate} `
           
         confirmBox.append(confirmDiv)
 
@@ -345,6 +346,7 @@ let renderConfirmation = info => {
 
         let makeViewButton = document.createElement("button")
             makeViewButton.className = "new-view-after-booking"
+            makeViewButton.id = "new-view-btn"
             makeViewButton.innerText = "View Upcoming Trips"
             viewAgain.append(makeViewButton)
 
@@ -352,7 +354,8 @@ let renderConfirmation = info => {
                  confirmBox.innerHTML = ""
                  universeQuote.innerHTML = ""
                  makeViewButton.className = "hiding-elem"
-                showMe()
+                 console.log("who are you: 😭", globalUser)
+                showMe(globalUser)
             })
         
 
@@ -379,8 +382,10 @@ let loginEmail = document.getElementById("login-form")
 let loginPassword = document.getElementById("login-password")
 
 loginEmail.addEventListener("submit", (evt) => {
+
     evt.preventDefault()
     
+
     // console.log("👻👻👻👻👻👻👻👻")
     // debugger
     let emailUser = evt.target.email.value
@@ -399,12 +404,7 @@ loginEmail.addEventListener("submit", (evt) => {
     })
         .then(res => res.json())
         .then(foundUserObj => {
-            // if(response.id){
-            //     showTeacherInformation(response)
-            //     console.log(response);
-            // } else {
-            //     console.error(response)
-            // }
+            evt.target.reset()
             console.log("this is what 👻", foundUserObj)
            
             globalUser = foundUserObj.user
@@ -425,16 +425,26 @@ let showMe = user => {
     tripButton.className = "hiding-elem"
     galaxyTitle.innerText = "My Upcoming Trips"
 
+    debugger
 
     let upcomingTrips = user.trips
+    let makeTripDiv
+
+    let nameDiv = document.createElement("div")
+        
+        nameDiv.className = "my-trips"
+        nameDiv.innerText = `Hello ${user.user.first_name},`
+        aboutMe.append(nameDiv)
+
 
     let upcomingDiv = document.createElement("div")
-        upcomingDiv.className = "my-trips"
+        upcomingDiv.className = "my-upcoming"
         aboutMe.append(upcomingDiv)
+        // aboutMe.append(breakStyle)
 
-        let nameP = document.createElement("p")
+    let nameP = document.createElement("p")
         nameP.className = "upcoming-name"
-        nameP.innerText = `Hello ${user.user.first_name}, `
+        // nameP.innerText = `Hello ${user.user.first_name},  `
         upcomingDiv.append(nameP)
 
     upcomingTrips.forEach(trip => {
@@ -445,33 +455,35 @@ let showMe = user => {
         let chosenLeavingPlanet = trip.depart_planet_id
         let chosenToPlanet  = trip.arrival_planet_id
         let chosenDate = trip.date
-        
-        
-        
         let upcomingLeavingPlanet = planetsArray[chosenLeavingPlanet]
         let upcomingToPlanet = planetsArray[chosenToPlanet]
 
+            makeTripDiv = document.createElement("div")
+            makeTripDiv.className = "test-styling"
+            // aboutMe.append(makeTripDiv)
 
-
-
-        let upcomingLi = document.createElement("li")
+            let upcomingLi = document.createElement("li")
             upcomingLi.className = "upcoming-li"
-            upcomingDiv.append(upcomingLi)
-
-        let upcomingP = document.createElement("p")
-            upcomingP.className = "upcoming-p"
-            upcomingP.innerText = `${upcomingLeavingPlanet} to ${upcomingToPlanet} on ${chosenDate}`
-            upcomingLi.append(upcomingP)
-
+            upcomingLi.innerText = `${upcomingLeavingPlanet} to ${upcomingToPlanet} on ${chosenDate}`
+        
+            // makeTripDiv.append(upcomingLi)
             
-
+            // let upcomingP = document.createElement("p")
+            //     upcomingP.className = "upcoming-p"
+                // upcomingP.innerText = `${upcomingLeavingPlanet} to ${upcomingToPlanet} on ${chosenDate}`
+                // upcomingLi.append(upcomingP)
+                
+                // upcomingLi.append(upcomingP)
+                makeTripDiv.append(upcomingLi)
+                aboutMe.append(makeTripDiv)
+            
     })
-    
 
         let makeTripButton = document.createElement("button")
             makeTripButton.className = "new-trip-after-login"
+            makeTripButton.id = "upcoming-btn-style"
             makeTripButton.innerText = "Book Another Trip"
-            aboutMe.append(makeTripButton)
+            makeTripDiv.append(makeTripButton)
             // debugger
 
     makeTripButton.addEventListener("click", evt => {
