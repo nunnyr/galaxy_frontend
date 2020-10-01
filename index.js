@@ -81,7 +81,7 @@ let hidingTripButton = trip => {
 let renderUserRegistration = info => {
     //first we want to create a new user
     galaxyContainer.innerHTML = ""
-    galaxyTitle.innerText = "Account Details"
+    galaxyTitle.innerText = "Make An Account"
 
     // let userImg = document.createElement("img")
     //     userImg.className = "galaxy-png"
@@ -205,7 +205,7 @@ let renderTripDetails = info => {
     galaxyContainer.innerHTML = ""
     userForm.innerHTML = ""
     aboutMe.innerHTML = ""
-    galaxyTitle.innerText = "Trip Details"
+    galaxyTitle.innerText = "Mission Details"
     // USER NOW CHOOSE PLANET(S) && TRIP DATES
         // ONE date input && TWO planet drop down forms (ONE WAY)
         // ADVANCED GOAL: SEATING CHART
@@ -429,7 +429,7 @@ let showMe = user => {
                 // quoteUniverse.innerHTML = ""
                 // viewAgain.className = "hiding-elem"
     tripButton.className = "hiding-elem"
-    galaxyTitle.innerText = "My Upcoming Trips"
+    galaxyTitle.innerText = "My Upcoming Galaxy Mission"
 
     debugger
 
