@@ -1,5 +1,5 @@
 <!-- ## Process -->
-### Stellar Galaxy Mission
+## Stellar Galaxy Mission
 ## Table of Contents
 1. About
 2. Features
