@@ -10,7 +10,7 @@
 
 ### About
 
-🪐 Stellar Galaxy Mission is a fullstack app that allows users to choose different planets located in the Milky Way(https://en.wikipedia.org/wiki/Milky_Way). This app was created with three models using object relationship mapping.
+🪐 Stellar Galaxy Mission is a fullstack app that allows users to choose different planets located in the Milky Way. This app was created with three models using object relationship mapping.
 
 ### Features
 🪐 Users are able to browse Planets and view information pertaining to each one.  
