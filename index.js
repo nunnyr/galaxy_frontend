@@ -12,6 +12,8 @@ let confirmBox = document.getElementById("confirmation-container")
 let universeQuote = document.getElementById("universe-quote")
 let aboutMe = document.getElementById("its-me")
 
+let viewAgain = document.getElementById("view-again")
+
 let globalUser = {}
 
 
@@ -344,9 +346,12 @@ let renderConfirmation = info => {
         let makeViewButton = document.createElement("button")
             makeViewButton.className = "new-view-after-booking"
             makeViewButton.innerText = "View Upcoming Trips"
-            confirmBox.append(makeViewButton)
+            viewAgain.append(makeViewButton)
 
             makeViewButton.addEventListener("click", evt => {
+                 confirmBox.innerHTML = ""
+                 universeQuote.innerHTML = ""
+                 makeViewButton.className = "hiding-elem"
                 showMe()
             })
         
@@ -401,6 +406,7 @@ loginEmail.addEventListener("submit", (evt) => {
             //     console.error(response)
             // }
             console.log("this is what 👻", foundUserObj)
+           
             globalUser = foundUserObj.user
              
             showMe(foundUserObj)
@@ -410,6 +416,12 @@ loginEmail.addEventListener("submit", (evt) => {
 
 let showMe = user => {
     galaxyContainer.innerHTML = ""
+    // globalUser = user
+    // confirmBox.className = "hiding-elem"
+    // quoteUniverse.className = "hiding-elem"
+                // confirmBox.innerHTML = ""
+                // quoteUniverse.innerHTML = ""
+                // viewAgain.className = "hiding-elem"
     tripButton.className = "hiding-elem"
     galaxyTitle.innerText = "My Upcoming Trips"
 
