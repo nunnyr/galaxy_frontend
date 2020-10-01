@@ -35,6 +35,7 @@ fetch("http://localhost:3000/planets")
 
         let planetImg = document.createElement("img")
             planetImg.className = "card-img-top"
+            planetImg.id = "card-id-style"
             planetImg.src = planet.image
             planetImg.alt = `Image of ${planet.name} from NASA`
             planetDiv.append(planetImg)
@@ -355,7 +356,12 @@ let renderConfirmation = info => {
                  universeQuote.innerHTML = ""
                  makeViewButton.className = "hiding-elem"
                  console.log("who are you: 😭", globalUser)
-                showMe(globalUser)
+                 showMe(globalUser)
+
+
+
+
+
             })
         
 
@@ -484,13 +490,14 @@ let showMe = user => {
             makeTripButton.id = "upcoming-btn-style"
             makeTripButton.innerText = "Book Another Trip"
             makeTripDiv.append(makeTripButton)
-            // debugger
+            debugger
 
     makeTripButton.addEventListener("click", evt => {
         upcomingDiv.className = "hiding-elem"
         makeTripButton.className = "hiding-elem"
         renderTripDetails()
     })
+
 
 
 }
